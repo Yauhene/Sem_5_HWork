@@ -19,7 +19,6 @@ public class Philosopher implements Runnable {
             synchronized (lock) {
                 while (currentPhilosopher != id) {
                     try {
-
                         lock.wait();
                     } catch (InterruptedException e) {
                         e.printStackTrace();
@@ -38,16 +37,17 @@ public class Philosopher implements Runnable {
                 currentPhilosopher = (currentPhilosopher + 1) % 5;
 
                 lock.notifyAll();
+
             }
         }
     }
 
     public static void main(String[] args) {
-        Thread[] workers = new Thread[5];
+        Thread[] philosophers = new Thread[5];
 
         for (int i = 0; i < 5; i++) {
-            workers[i] = new Thread(new Philosopher(i));
-            workers[i].start();
+            philosophers[i] = new Thread(new Philosopher(i));
+            philosophers[i].start();
         }
     }
 }
