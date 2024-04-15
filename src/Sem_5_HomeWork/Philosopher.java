@@ -33,7 +33,7 @@ public class Philosopher implements Runnable {
                     e.printStackTrace();
                 }
                 System.out.println("Философ #" + id + " откушали с аппетитом.");
-                System.out.println("     Философ #" + id + ": \'Подумаем о высоком... Эта работа меня убьет\'");
+                System.out.println("     Философ #" + id + ": \'Подумаем о высоком... Эта работа меня убьет.\'");
 
                 currentPhilosopher = (currentPhilosopher + 1) % 5;
 
